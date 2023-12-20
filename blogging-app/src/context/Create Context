@@ -1,0 +1,25 @@
+
+1. create Context
+context=createContext(null)
+   its has provider ~ its provide the data
+    and consumer ~ its consume the data
+
+2. wrap out components in provider
+
+<context.Provider value={user}>
+childer
+</context.Provider>
+
+3. consume the value with help of consumer
+
+<context.Consumer>
+        {
+        (value)=>(
+           <div>
+             {value.name}
+           </div>
+            )
+        }
+
+
+</context.Consumer>
