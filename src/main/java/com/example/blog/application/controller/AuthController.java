@@ -82,18 +82,15 @@ public class AuthController {
         return new ResponseEntity<JwtAuthResponse>(response, HttpStatus.OK);
     }
 
-    private void doAuthenticate(String email, String password) {
-
-        UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(email, password);
+    private void doAuthenticate(String username, String password) {
+        UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(username, password);
         try {
             this.authenticationManager.authenticate(authentication);
-
-
         } catch (BadCredentialsException e) {
-            throw new BadCredentialsException(" Invalid Username or Password  !!");
+            throw new BadCredentialsException("Invalid Username or Password!!");
         }
-
     }
+
 
     @ExceptionHandler(BadCredentialsException.class)
     public String exceptionHandler() {
